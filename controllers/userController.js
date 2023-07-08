@@ -52,4 +52,32 @@ module.exports = {
       )
       .catch((err) => res.status(500).json(err));
   },
+  // add friend to user friends list
+  addFriend(req, res) {
+    User.findOneAndUpdate(
+      { _id: req.params.userId },
+      { $push: { friends: req.params.friendId } },
+      { new: true, runValidators: true }
+    )
+      .then((user) =>
+        !user
+          ? res.status(404).json({ message: "No user with this ID" })
+          : res.json(user)
+      )
+      .catch((err) => res.status(500).json(err));
+  },
+  // remove a friend from users friend list
+  removeFriend(req, res) {
+    User.findOneAndUpdate(
+      { _id: req.params.userId },
+      { $pull: { friends: req.params.friendId } },
+      { new: true }
+    )
+      .then((user) =>
+        !user
+          ? res.status(404).json({ message: "No user with this ID" })
+          : res.json(user)
+      )
+      .catch((err) => res.status(500).json(err));
+  },
 };
