@@ -1,5 +1,4 @@
 const { Schema, model, Types } = require("mongoose");
-const uniqueValidator = require("mongoose-unique-validator");
 
 const userSchema = new Schema(
   {
@@ -42,10 +41,6 @@ const userSchema = new Schema(
 
 userSchema.virtual("friendCount").get(function () {
   return this.friends.length;
-});
-
-userSchema.plugin(uniqueValidator, {
-  message: "Error, expected {PATH} to be unique.",
 });
 
 module.exports = model("User", userSchema);
