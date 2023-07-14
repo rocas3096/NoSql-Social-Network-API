@@ -1,16 +1,16 @@
 {
-  "name": "NoSQL- Social Network API",
+  "name": "NoSQL-Social_Network_API",
   "version": "1.0.1",
   "description": "NoSQL- Social Network API",
   "main": "index.js",
   "scripts": {
-    "start": "node index",
-    "seed": "node utils/seed"
+    "start": "node index.js",
+    "seed": "node utils/seed.js"
   },
   "dependencies": {
     "express": "^4.18.2",
-    "momment": "^0.0.1",
-    "mongoose": "^7.3.2",
-    "mongoose-unique-validator": "^4.0.0"
+    "moment": "^2.29.1",
+    "mongoose": "^5.13.8",
+    "mongoose-unique-validator": "^2.0.3"
   }
 }

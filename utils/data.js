@@ -110,4 +110,9 @@ const getRandomReaction = () =>
   reactions[Math.floor(Math.random() * reactions.length)];
 
 // Export the functions for use in seed.js
-module.exports = { getRandomName, getRandomThoughtText, getRandomReaction };
+module.exports = {
+  getRandomArrItem,
+  getRandomName,
+  getRandomThoughtText,
+  getRandomReaction,
+};
